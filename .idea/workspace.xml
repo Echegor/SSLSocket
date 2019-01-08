@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="488956ce-6d1c-4987-936d-3f9c9bb963a1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README" beforeDir="false" afterPath="$PROJECT_DIR$/README" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/certificate/CellularMPOS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SSLServer/com/archelo/ssl/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SSLServer/com/archelo/ssl/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SSLServer/com/archelo/ssl/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SSLServer/com/archelo/ssl/Server.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/archelo/ssl/SSLUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/archelo/ssl/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/archelo/ssl/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/archelo/ssl/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/archelo/ssl/Server.java" afterDir="false" />
     </list>
@@ -19,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/archelo/ssl/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="73" column="63" lean-forward="true" selection-start-line="73" selection-start-column="63" selection-end-line="73" selection-end-column="63" />
+            <state relative-caret-position="393">
+              <caret line="30" column="32" lean-forward="true" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -32,9 +28,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/archelo/ssl/SSLUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="141">
+              <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/archelo/ssl/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="291">
+              <caret line="27" column="39" lean-forward="true" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -45,8 +54,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="32" lean-forward="true" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
+            <state relative-caret-position="68">
+              <caret line="4" column="51" lean-forward="true" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -67,9 +76,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/com/archelo/Server.java" />
-        <option value="$PROJECT_DIR$/src/com/archelo/ssl/Client.java" />
         <option value="$PROJECT_DIR$/README" />
         <option value="$PROJECT_DIR$/src/com/archelo/ssl/Server.java" />
+        <option value="$PROJECT_DIR$/src/com/archelo/ssl/SSLUtils.java" />
+        <option value="$PROJECT_DIR$/src/com/archelo/ssl/Client.java" />
       </list>
     </option>
   </component>
@@ -119,7 +129,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546983556734" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546984820704" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/NCRCash" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
@@ -149,7 +159,7 @@
     <configuration name="Server" type="Application" factoryName="Application" singleton="true">
       <option name="MAIN_CLASS_NAME" value="com.archelo.ssl.Server" />
       <module name="SSLServer" />
-      <option name="VM_PARAMETERS" value="-Djavax.net.debug=SSL,handshake" />
+      <option name="VM_PARAMETERS" value="-Dcom.wakefern.keystore.path=C:\Users\rtl1e\IdeaProjects\SSLServer\certificate\CellularMpos.keystore -Dcom.wakefern.keystore.password=p0s2AD#v" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -173,18 +183,18 @@
       <workItem from="1546533528261" duration="892000" />
       <workItem from="1546542003724" duration="3327000" />
       <workItem from="1546626274341" duration="5706000" />
-      <workItem from="1546871357632" duration="6061000" />
+      <workItem from="1546871357632" duration="7240000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20308000" />
+    <option name="totallyTimeSpent" value="21487000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1945629" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1945629" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -193,14 +203,14 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.35714287" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.35714287" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39935064" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32936078" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32900432" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32900432" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
@@ -219,6 +229,15 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>System.getProperties()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/Desktop/delete me/prithika code/Main.java" />
     <entry file="file://$PROJECT_DIR$/certificate/CellularMPOS">
@@ -226,24 +245,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="32" lean-forward="true" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
+        <state relative-caret-position="68">
+          <caret line="4" column="51" lean-forward="true" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/archelo/ssl/Client.java">
+    <entry file="file://$PROJECT_DIR$/src/com/archelo/ssl/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="393">
+          <caret line="30" column="32" lean-forward="true" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/archelo/ssl/Server.java">
+    <entry file="file://$PROJECT_DIR$/src/com/archelo/ssl/SSLUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="73" column="63" lean-forward="true" selection-start-line="73" selection-start-column="63" selection-end-line="73" selection-end-column="63" />
+        <state relative-caret-position="141">
+          <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/archelo/ssl/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="27" column="39" lean-forward="true" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
