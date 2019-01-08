@@ -2,14 +2,12 @@ package com.archelo.ssl;
 
 import javax.net.ssl.*;
 import java.io.*;
-import java.net.UnknownHostException;
 import java.security.*;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 
-import static com.archelo.ssl.Server.CERTIFICATE_PASSWORD;
 import static com.archelo.ssl.Server.PATH_TO_CERTIFICATE;
 
 public class Client {
@@ -17,7 +15,7 @@ public class Client {
         try {
             System.out.println("Running client");
 //            SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
-            SSLSocketFactory factory = createSSLSocketFactory();
+            SSLSocketFactory factory = createSSLSocketFactory().getSocketFactory();
             SSLSocket sslsocket = (SSLSocket) factory.createSocket("localhost", 1234);
             sslsocket.startHandshake();
 
@@ -32,8 +30,6 @@ public class Client {
                 System.out.println("Received: " + responseStr);
             }
 
-
-//            sslsocket.close();
         } catch (IOException | NoSuchAlgorithmException | CertificateException | KeyStoreException | KeyManagementException e) {
             System.out.println(e.getMessage());
         } catch (UnrecoverableKeyException e) {
@@ -41,22 +37,29 @@ public class Client {
         }
     }
 
-    public static SSLSocketFactory createSSLSocketFactory() throws KeyStoreException, IOException, NoSuchAlgorithmException, KeyManagementException, CertificateException, UnrecoverableKeyException {
-        KeyStore ks = KeyStore.getInstance("JKS");
-        ks.load(new FileInputStream(PATH_TO_CERTIFICATE), CERTIFICATE_PASSWORD.toCharArray());
+    public static SSLContext createSSLSocketFactory() throws KeyStoreException, IOException, NoSuchAlgorithmException, KeyManagementException, CertificateException, UnrecoverableKeyException {
+        InputStream certificate = new FileInputStream(PATH_TO_CERTIFICATE);
+        CertificateFactory cf = CertificateFactory.getInstance("X.509");
+        Certificate ca;
+        try (InputStream caInput = new BufferedInputStream(certificate)) {
+            ca = cf.generateCertificate(caInput);
+            System.out.println("ca=" + ((X509Certificate) ca).getSubjectDN());
+        }
 
-//        KeyManagerFactory kmf = KeyManagerFactory.getInstance("X509");
-        KeyManagerFactory kmf = KeyManagerFactory.getInstance("SunX509");
-        kmf.init(ks, CERTIFICATE_PASSWORD.toCharArray());
+// Create a KeyStore containing our trusted CAs
+        KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
+        keyStore.load(null,null );
+        keyStore.setCertificateEntry("ca", ca);
 
-        TrustManagerFactory tmf = TrustManagerFactory.getInstance("SunX509");
-        tmf.init(ks);
+// Create a TrustManager that trusts the CAs in our KeyStore
+        TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+        tmf.init(keyStore);
 
-        SSLContext sc = SSLContext.getInstance("TLS");
-        TrustManager[] trustManagers = tmf.getTrustManagers();
-        sc.init(kmf.getKeyManagers(), trustManagers, null);
+// Create an SSLContext that uses our TrustManager
+        SSLContext context = SSLContext.getInstance("TLS");
+        context.init(null, tmf.getTrustManagers(), null);
 
-        return sc.getSocketFactory();
+        return context;
     }
 
 //    public static SSLSocketFactory createSSLSocketContext() throws NoSuchAlgorithmException, CertificateException, IOException, KeyStoreException, KeyManagementException {

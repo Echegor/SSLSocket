@@ -1,1 +1,5 @@
+//create a keystore to hold certificates
 create keyserver: keytool -genkey -keystore yourKEYSTORE -keyalg RSA
+
+//export self signed certificate
+keytool -exportcert -keystore CellularMpos.keystore -file output.crt
